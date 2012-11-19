@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Tourist_Information_Centre_Demonstration_Program
+Bundle-SymbolicName: Tourist_Information_Centre_Demonstration_Program; singleton:=true
+Bundle-Version: 0.0.0.a
+Bundle-Vendor: TIM Solutions
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.ui,
+ javax.inject;bundle-version="1.0.0",
+ org.eclipse.e4.core.services;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="com.tim.ticd.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="Customer Information"
+            class="com.tim.ticd.ui.perspectives.CustomerPerspective"
+            id="com.tim.ticd.ui.perspectives.customerPerspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="com.tim.ticd.ui.views.CustomerDetailView"
+            id="com.tim.ticd.ui.views.customerDetailView"
+            name="CustomerDetailView"
+            restorable="true">
+      </view>
+      <view
+            class="com.tim.ticd.ui.views.AccommodationDetailView"
+            id="com.tim.ticd.ui.views.accommodationDetailView"
+            name="Accommodation Details"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <menu
+               label="Create"
+               mnemonic="c">
+            <command
+                  commandId="com.tim.ticd.commands.createCustomerCommand"
+                  mnemonic="u"
+                  style="push"
+                  tooltip="Opens the wizard to create a new customer">
+            </command>
+         </menu>
+         <menu
+               label="Display"
+               mnemonic="d">
+            <command
+                  commandId="com.tim.ticd.commands.showAccommodationView"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.tim.ticd.handlers.CreateCustomerHandler"
+            commandId="com.tim.ticd.commands.createCustomerCommand">
+      </handler>
+      <handler
+            class="com.tim.ticd.handlers.ShowAccommodationViewHandler"
+            commandId="com.tim.ticd.commands.showAccommodationView">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            description="Commands that enable the creation of objects"
+            id="com.tim.ticd.commands.createCommandsCategory"
+            name="Create Commands">
+      </category>
+      <command
+            categoryId="com.tim.ticd.commands.createCommandsCategory"
+            description="Opens the wizard to create a new customer"
+            id="com.tim.ticd.commands.createCustomerCommand"
+            name="Create Customer">
+      </command>
+      <category
+            description="Commands that enable views"
+            id="com.tim.ticd.commands.displayCommandsCategory"
+            name="Display commands">
+      </category>
+      <command
+            categoryId="com.tim.ticd.commands.displayCommandsCategory"
+            id="com.tim.ticd.commands.showAccommodationView"
+            name="Show Accommodation">
+      </command>
+   </extension>
+
+</plugin>
