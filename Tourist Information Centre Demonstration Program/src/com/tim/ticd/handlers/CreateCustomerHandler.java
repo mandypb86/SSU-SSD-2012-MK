@@ -24,7 +24,7 @@ public class CreateCustomerHandler implements IHandler {
 	@Override
 	
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		// TODO create an instance of CreateCustomerWizard and open it
+		// create an instance of CreateCustomerWizard and open it
 		new WizardDialog(HandlerUtil.getActiveShell(event),new CreateCustomerWizard()).open();
 		return null;
 	}
