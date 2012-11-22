@@ -4,6 +4,8 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.commands.IHandlerListener;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
 
 public class ShowAccommodationViewHandler implements IHandler {
 
@@ -19,7 +21,11 @@ public class ShowAccommodationViewHandler implements IHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		// TODO open view programmatically
+		try {
+			PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView("com.tim.ticd.ui.views.accommodationDetailView");
+		} catch (PartInitException e) {
+			e.printStackTrace();
+		}
 		System.out.println("Accommodation Detail View opened");
 		return null;
 	}
